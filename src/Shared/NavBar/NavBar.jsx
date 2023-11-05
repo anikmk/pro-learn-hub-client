@@ -16,10 +16,10 @@ const NavBar = () => {
   const navItems = (
     <>
       <li>
-        <Link className="hover:text-[#c5c5c5]">HOME</Link>
+        <Link to='/' className="hover:text-[#c5c5c5]">HOME</Link>
       </li>
       <li>
-        <Link className="hover:text-[#c5c5c5]">ADD JOB</Link>
+        <Link to='/addjob' className="hover:text-[#c5c5c5]">ADD JOB</Link>
       </li>
       <li>
         <Link className="hover:text-[#c5c5c5]">MY POSTEDJOBS</Link>

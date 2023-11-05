@@ -1,6 +1,7 @@
 import Banner from "./Banner/Banner";
 import CategorysTab from "./CategorysTab/CategorysTab";
 import Seminar from "./FreeSeminar/FreeSeminar";
+import SuccessStory from "./SuccessStory/SuccessStory";
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
             <CategorysTab></CategorysTab>
             </div>
             <Seminar></Seminar>
+            <SuccessStory></SuccessStory>
         </div>
     );
 };

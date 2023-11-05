@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "title": "Product Launch Event",
+      "description": "Join us for the grand unveiling of our latest product, packed with cutting-edge features and technology.Discover a world of creativity and imagination at this art exhibition.",
+      "image": "https://i.ibb.co/301HrvT/img-17.png",
+      "name": "John Doe",
+      "jobName": "Marketing Manager",
+      "places": "New York, NY"
+    },
+    {
+      "id": 2,
+      "title": "Web Development",
+      "description": "Join us for the grand unveiling of our latest product, packed with cutting-edge features and technology.Discover a world of creativity and imagination at this art exhibition.",
+      "image": "https://i.ibb.co/301HrvT/img-17.png",
+      "name": "Alice Smith",
+      "jobName": "Web Developer",
+      "places": "San Francisco, CA"
+    },
+    {
+      "id": 3,
+      "title": "Art Exhibition",
+      "description": "Join us for the grand unveiling of our latest product, packed with cutting-edge features and technology.Discover a world of creativity and imagination at this art exhibition.",
+      "image": "https://i.ibb.co/301HrvT/img-17.png",
+      "name": "Emily John",
+      "jobName": "Curator",
+      "places": "Los Angeles, CA"
+    },
+    {
+      "id": 4,
+      "title": "Job Fair 2023",
+      "description": "Join us for the grand unveiling of our latest product, packed with cutting-edge features and technology.Discover a world of creativity and imagination at this art exhibition.",
+      "image": "https://i.ibb.co/301HrvT/img-17.png",
+      "name": "Emily John",
+      "jobName": "HR Manager",
+      "places": "Chicago, IL"
+    }
+  ]
+

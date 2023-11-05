@@ -17,7 +17,7 @@ const WebCard = ({category}) => {
     <div>
       <h2>all category data is here</h2>
       <p>category length:{categoryData.length}</p>
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 pb-14">
         {
           categoryData.map(category=><Card
           key={category._id}

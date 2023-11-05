@@ -3,6 +3,9 @@ import { useContext } from 'react';
 import {  FaFacebook, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
   const {createUser} = useContext(AuthContext)
@@ -19,12 +22,29 @@ const SignUp = () => {
             email,
             password,
           }
+          if (password.length < 6) {
+            toast("Password should be at least 6 characters long.");
+            return;
+        } else if (!/[@$!#%*?&]/.test(password)) {
+            toast("Password should contain a special character.");
+            return;
+        } else if (!/[A-Z]/.test(password)) {
+            toast("Password should contain at least one uppercase letter.");
+            return;
+        }
           createUser(email,password)
           .then(result=>{
             console.log(result.user)
+            if (result.user) {
+              Swal.fire('Great', 'Your Registration Was Successfully', 'success');
+              console.log(result.user);
+          }
           })
           .catch(error=>{
             console.log(error.message)
+            if (error.message) {
+              Swal.fire('Oops', 'This Email Address Has Been Already An Used', 'error');
+          }
           })
   }
   return (
@@ -65,7 +85,7 @@ const SignUp = () => {
             <div className="form-control">
               <input
                 name="password"
-                type="password"
+                type="text"
                 placeholder="Enter Your Password"
                 className="input border border-gray-400 p-[10px] rounded-xl w-full mb-6"
                 required
@@ -101,6 +121,7 @@ const SignUp = () => {
       </div>
     </div>
   </div>
+  <ToastContainer></ToastContainer>
 </div>
 
   );

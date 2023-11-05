@@ -67,13 +67,15 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        {user && (
+        {user && ( 
+          <>
+          {user.displayName}
           <div className="avatar online mr-4">
             <div className="w-10 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-              <p>{user.email}</p>
+              <img src={user.photoURL} />
             </div>
           </div>
+          </>
         )}
         {user ? (
           <button onClick={handleLogOutUser}>LOG OUT</button>

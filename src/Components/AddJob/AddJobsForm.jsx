@@ -1,5 +1,6 @@
 
 import  { useState } from 'react';
+import Swal from 'sweetalert2';
 const AddJobsForm = () => {
   const [email, setEmail] = useState('');
   const [jobTitle, setJobTitle] = useState('');
@@ -30,7 +31,13 @@ const AddJobsForm = () => {
     })
     .then(res=>res.json())
     .then(data=>{
-      console.log(data)
+      if(data.insertedId){
+        Swal.fire(
+          'Good job!',
+          'Your Job Already Added!',
+          'success'
+        )
+      }
     })
   };
 

@@ -1,5 +1,5 @@
-import  { useState } from 'react';
 
+import  { useState } from 'react';
 const AddJobsForm = () => {
   const [jobTitle, setJobTitle] = useState('');
   const [deadline, setDeadline] = useState('');
@@ -19,6 +19,17 @@ const AddJobsForm = () => {
         maxPrice
     }
     console.log(AddedJobData)
+    fetch('http://localhost:5000/addjobs',{
+      method:"POST",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify(AddedJobData)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data)
+    })
   };
 
   return (
@@ -69,9 +80,9 @@ const AddJobsForm = () => {
             onChange={(e) => setCategory(e.target.value)}
           >
             <option value="">Select a category</option>
-            <option value="Category 1">Category 1</option>
-            <option value="Category 2">Category 2</option>
-            {/* Add more category options */}
+            <option value="web developer">Web Developer</option>
+            <option value="digital marketing">Digital Marketing</option>
+            <option value="graphics design">Graphics Design</option>
           </select>
         </div>
 
@@ -98,10 +109,9 @@ const AddJobsForm = () => {
             onChange={(e) => setMaxPrice(e.target.value)}
           />
         </div>
-
         <button
           type="submit"
-          className="bg-[#005843] text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300"
+          className="bg-[#005843] text-white px-4 py-2 rounded hover:bg-[#014233] transition duration-300"
         >
           Add Job
         </button>

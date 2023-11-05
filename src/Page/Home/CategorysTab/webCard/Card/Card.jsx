@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const Card = ({category}) => {
-    const {jobTitle,deadline,description,minPrice} = category;
+    const {_id,jobTitle,deadline,description,minPrice} = category;
     return (
         <div className="card card-compact w-96 bg-[#005843] shadow-xl">
       <figure>
@@ -18,7 +19,9 @@ const Card = ({category}) => {
         <p>Price :{minPrice}</p>
         </div>
         <div className="card-actions justify-end">
+          <Link to={`/carddetails/${_id}`}>
           <button className="bg-[#feec62] text-[#005843] font-semibold px-3 py-2 rounded">BID NOW</button>
+          </Link>
         </div>
       </div>
     </div>

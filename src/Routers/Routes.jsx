@@ -5,6 +5,7 @@ import SignIn from "../Page/SignIn/SignIn";
 import SignUp from "../Page/SignUp/SignUp";
 import AddJobsForm from "../Components/AddJob/AddJobsForm";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
+import CardDetails from "../Page/Home/CategorysTab/webCard/Card/CardDetails/CardDetails";
 
 const router = createBrowserRouter([
     {
@@ -28,6 +29,11 @@ const router = createBrowserRouter([
             {
                 path:'addjob',
                 element:<AddJobsForm></AddJobsForm>
+            },
+            {
+                path:'carddetails/:id',
+                element:<CardDetails></CardDetails>
+                
             }   
         ]
     }

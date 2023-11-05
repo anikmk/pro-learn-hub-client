@@ -1,14 +1,24 @@
+import { useContext } from 'react';
 import {  FaFacebook, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const SignIn = () => {
+  const {loginUser} = useContext(AuthContext)
   const handleSignIn = (event) => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        const signInUser = {email,password}
-        console.log(signInUser)
+        // const signInUser = {email,password}
+
+        loginUser(email,password)
+        .then(result=>{
+          console.log(result.user)
+        })
+        .catch(error=>{
+          console.log(error.message)
+        })
   }
   return (
     <div>

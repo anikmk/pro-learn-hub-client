@@ -1,6 +1,7 @@
 
 import  { useState } from 'react';
 const AddJobsForm = () => {
+  const [email, setEmail] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [deadline, setDeadline] = useState('');
   const [description, setDescription] = useState('');
@@ -11,6 +12,7 @@ const AddJobsForm = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const AddedJobData = {
+        email,
         jobTitle,
         deadline,
         description,
@@ -35,6 +37,17 @@ const AddJobsForm = () => {
   return (
     <div className="bg-gray-100 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
       <form onSubmit={handleFormSubmit} className="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-md">
+        <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700 font-bold">Email</label>
+          <input
+            type="email"
+            id="email"
+            className="form-input border-[2px] rounded border-[#00584367] p-2 w-full"
+            value={email}
+            placeholder='Job Title'
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
         <div className="mb-4">
           <label htmlFor="jobTitle" className="block text-gray-700 font-bold">Job Title</label>
           <input

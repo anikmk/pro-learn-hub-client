@@ -22,7 +22,9 @@ const NavBar = () => {
         <Link to='/addjob' className="hover:text-[#c5c5c5]">ADD JOB</Link>
       </li>
       <li>
-        <Link className="hover:text-[#c5c5c5]">MY POSTEDJOBS</Link>
+        {
+          user && <Link to='/postedjob' className="hover:text-[#c5c5c5]">MY POSTEDJOBS</Link>
+        }
       </li>
       <li>
         <Link className="hover:text-[#c5c5c5]">MY BIDS</Link>

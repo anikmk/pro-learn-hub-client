@@ -6,6 +6,7 @@ import SignUp from "../Page/SignUp/SignUp";
 import AddJobsForm from "../Components/AddJob/AddJobsForm";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 import CardDetails from "../Page/Home/CategorysTab/webCard/Card/CardDetails/CardDetails";
+import MyPostedJob from "../Components/MyPostedJob/MyPostedJob";
 
 const router = createBrowserRouter([
     {
@@ -32,8 +33,11 @@ const router = createBrowserRouter([
             },
             {
                 path:'carddetails/:id',
-                element:<CardDetails></CardDetails>
-                
+                element:<CardDetails></CardDetails> 
+            },
+            {
+                path:'postedjob',
+                element:<MyPostedJob></MyPostedJob>
             }   
         ]
     }

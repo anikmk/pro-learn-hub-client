@@ -1,22 +1,31 @@
-const WebCard = () => {
+
+import { useEffect, useState } from "react";
+import Card from "./Card/Card";
+
+const WebCard = ({category}) => {
+  console.log(category)
+  const [categoryData,setCategoryData] = useState([]);
+  useEffect(()=>{
+    fetch(`http://localhost:5000/courses/${category}`)
+    .then(res=>res.json())
+    .then(data=>{
+      setCategoryData(data)
+      console.log(data)
+    })
+  },[category])
   return (
-    <div className="card card-compact w-96 bg-[#005843] shadow-xl">
-      <figure>
-        <img
-          src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="Shoes"
-        />
-      </figure>
-      <div className="card-body text-white">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="flex">
-        <p>Deadline :</p>
-        <p>Price :</p>
-        </div>
-        <div className="card-actions justify-end">
-          <button className="bg-[#feec62] text-[#005843] font-semibold px-3 py-2 rounded">BID NOW</button>
-        </div>
+    <div>
+      <h2>all category data is here</h2>
+      <p>category length:{categoryData.length}</p>
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {
+          categoryData.map(category=><Card
+          key={category._id}
+          category={category}
+          >
+
+          </Card>)
+        }
       </div>
     </div>
   );

@@ -8,8 +8,10 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <div className="my-24 w-[80%] mx-auto">
+            <div className=" bg-[#cccccc73]">
+            <div className="w-[90%] mx-auto">
             <CategorysTab></CategorysTab>
+            </div>
             </div>
             <Seminar></Seminar>
             <SuccessStory></SuccessStory>

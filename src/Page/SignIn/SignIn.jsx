@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 
 const SignIn = () => {
-  const {loginUser} = useContext(AuthContext)
+  const {loginUser,loginWithGoogle} = useContext(AuthContext)
   const handleSignIn = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -19,6 +19,15 @@ const SignIn = () => {
         .catch(error=>{
           console.log(error.message)
         })
+  }
+  const handleLogInWithGoogle = () => {
+    loginWithGoogle()
+    .then(result=>{
+      console.log(result.user)
+    })
+    .catch(error=>{
+      console.log(error.message)
+    })
   }
   return (
     <div>
@@ -67,7 +76,7 @@ const SignIn = () => {
 
       <div className='bg-transparent border border-gray-400 text-black w-9/12 flex justify-center items-center gap-x-3 py-[10px] rounded-lg mx-auto mb-6 hover:shadow-md hover:shadow-[#0e624e49]'> 
       <FaGoogle className='rounded-full text-xl'></FaGoogle>
-     <button className='font-medium'> Log In With Google</button>
+     <button onClick={handleLogInWithGoogle} className='font-medium'> Log In With Google</button>
      </div>
 
         <p className="text-center mb-8 font-medium">

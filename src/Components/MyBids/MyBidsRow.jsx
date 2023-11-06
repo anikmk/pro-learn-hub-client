@@ -2,7 +2,7 @@
 
 const MyBidsRow = ({mybid}) => {
        console.log(mybid)
-        const {buyerEmail,deadline} = mybid
+        const {buyerEmail,deadline,status} = mybid
     return (   
              <tr>
         <th>
@@ -24,7 +24,7 @@ const MyBidsRow = ({mybid}) => {
         </td>
         <td>{deadline}</td>
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+          <button className="btn btn-ghost btn-xs">{status}</button>
         </th>
       </tr>
        

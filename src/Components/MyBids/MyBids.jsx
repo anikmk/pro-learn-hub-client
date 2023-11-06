@@ -1,3 +1,4 @@
+import banner from '../../assets/banner/mybids.png'
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Page/Providers/AuthProvider";
 import MyBidsRow from "./MyBidsRow";
@@ -6,7 +7,7 @@ import MyBidsRow from "./MyBidsRow";
 const MyBids = () => {
     const {user} = useContext(AuthContext)
     const [myBids,setMyBids] = useState([])
-    const url =`http://localhost:5000/bidform?buyerEmail=${user.email}`
+    const url =`https://pro-learn-hub-server-site.vercel.app/bidform?buyerEmail=${user.email}`
     useEffect(()=>{
         fetch(url)
         .then(res=>res.json())
@@ -16,9 +17,27 @@ const MyBids = () => {
     },[url])
     return (
         <div>
-        
-            <h1>my bids page {myBids.length}</h1>
-            <div className="overflow-x-auto">
+    
+    <div className="bg-[#fff] pt-12 pb-28">
+      <div className="w-11/12 mx-auto">
+        <div className="lg:flex lg:justify-between lg:items-center">
+          <div className="lg:w-[55%] xl:w-[45%] w-[90%]">
+            <div className="text-left md:pb-8 py-5">
+               <h1 className="text-black uppercase font-semibold md:text-6xl text-3xl lg:text-5xl">Here, <span className="text-[#005843]">you can explore</span>the various <span className="text-[#005843]">opportunities</span></h1>
+            </div>
+            <div className="flex pb-6 lg:mb-0">
+              <button className="mr-5 bg-[#005843] text-white lg:py-3 py-2 lg:px-9 md:px-7 px-6 rounded-full text-md font-medium hover:bg-[#005848] hover:shadow-lg hover:shadow-[#0E624E]">Course</button>
+              <button className="border border-[#005843] text-[#005843] lg:py-3 py-2 lg:px-9 md:px-7 px-6 rounded-full hover:bg-[#005843] hover:text-white font-semibold hover:shadow-lg hover:shadow-[#0E624E]">Services</button>
+            </div>
+          </div>
+          <div className="lg:w-[45%] w-11/12 h-full mx-auto lg:mx-0">
+            <img className="w-full" src={banner} alt="" />
+          </div>
+        </div>
+      </div>
+          </div>
+    {/* banner end */}
+    <div className="overflow-x-auto py-10 bg-slate-200">
   <table className="table">
     {/* head */}
     <thead>

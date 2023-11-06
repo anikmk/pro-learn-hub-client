@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path:'/carddetails/:id',
                 element:<CardDetails></CardDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/course/${params.id}`) 
+                loader:({params})=>fetch(`https://pro-learn-hub-server-site.vercel.app/course/${params.id}`) 
             },
             {
                 path:'postedjob',

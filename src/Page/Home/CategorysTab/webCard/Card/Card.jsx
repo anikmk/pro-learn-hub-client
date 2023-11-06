@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 
 const Card = ({category}) => {
-    const {_id,jobTitle,deadline,description,minPrice} = category;
+    const {_id,jobTitle,deadline,description,minPrice,image} = category;
     return (
         <div className="card card-compact w-96 bg-[#005843] shadow-xl">
       <figure>
         <img
-          src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+          src={image}
           alt="Shoes"
         />
       </figure>

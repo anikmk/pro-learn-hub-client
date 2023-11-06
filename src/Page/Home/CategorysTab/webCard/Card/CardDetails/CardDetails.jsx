@@ -6,7 +6,7 @@ import { AuthContext } from '../../../../../Providers/AuthProvider';
 const CardDetails = () => {
   const {user} = useContext(AuthContext)
   const detailsData = useLoaderData()
-  const {description,deadline,minPrice,category} = detailsData
+  const {description,deadline,minPrice,category,image,status} = detailsData
   console.log(detailsData)
     const [price, setPrice] = useState('');
     const [deadLine, setDeadline] = useState('');
@@ -16,6 +16,7 @@ const CardDetails = () => {
     const handleFormSubmit = (e) => {     
         e.preventDefault();
         const bidingData = {
+            status,
             category,
             price,
             deadline: deadLine,
@@ -23,7 +24,7 @@ const CardDetails = () => {
             buyerEmail
         }
         console.log(bidingData)
-        fetch('http://localhost:5000/bidform',{
+        fetch('https://pro-learn-hub-server-site.vercel.app/bidform',{
           method:"POST",
           headers:{
             "content-type": "application/json"
@@ -44,14 +45,14 @@ const CardDetails = () => {
       };
   return (
     <div>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen">
         <div className="hero-content flex-col lg:flex-row">
           <img
-            src="/images/stock/photo-1635805737707-575885ab0820.jpg"
-            className="max-w-sm rounded-lg shadow-2xl"
+            src={image}
+            className="w-[50%] md:mr-6 rounded-lg shadow-2xl"
           />
           <div>
-            <h1 className="text-5xl font-bold">{category}</h1>
+            <h1 className="text-4xl font-bold">{category}</h1>
             <p className="py-6">
               {description}
             </p>

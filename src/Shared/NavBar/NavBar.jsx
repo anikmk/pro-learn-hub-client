@@ -27,7 +27,7 @@ const NavBar = () => {
         }
       </li>
       <li>
-        <Link className="hover:text-[#c5c5c5]">MY BIDS</Link>
+        <Link to='/mybids' className="hover:text-[#c5c5c5]">MY BIDS</Link>
       </li>
       <li>
         <Link className="hover:text-[#c5c5c5]">BID REQUESTS</Link>

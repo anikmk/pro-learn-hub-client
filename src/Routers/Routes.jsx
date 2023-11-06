@@ -7,6 +7,8 @@ import AddJobsForm from "../Components/AddJob/AddJobsForm";
 import ErrorPage from "../Shared/ErrorPage/ErrorPage";
 import CardDetails from "../Page/Home/CategorysTab/webCard/Card/CardDetails/CardDetails";
 import MyPostedJob from "../Components/MyPostedJob/MyPostedJob";
+import PrivetRoute from "./PrivetRoute";
+import MyBids from "../Components/MyBids/MyBids";
 
 const router = createBrowserRouter([
     {
@@ -32,12 +34,17 @@ const router = createBrowserRouter([
                 element:<AddJobsForm></AddJobsForm>
             },
             {
-                path:'carddetails/:id',
-                element:<CardDetails></CardDetails> 
+                path:'/carddetails/:id',
+                element:<CardDetails></CardDetails>,
+                loader:({params})=>fetch(`http://localhost:5000/course/${params.id}`) 
             },
             {
                 path:'postedjob',
-                element:<MyPostedJob></MyPostedJob>
+                element:<PrivetRoute><MyPostedJob></MyPostedJob></PrivetRoute>
+            },
+            {
+                path:'mybids',
+                element:<PrivetRoute><MyBids></MyBids></PrivetRoute>
             }   
         ]
     }

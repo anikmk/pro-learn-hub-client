@@ -1,6 +1,13 @@
-const MyPostedJobCard = ({singleJob}) => {
+
+
+const MyPostedJobCard = ({singleJob,handleDelete}) => {
     console.log(singleJob)
-    const {email,jobTitle,deadline,description,category,minPrice,maxPrice} = singleJob;
+    const {_id,email,jobTitle,deadline,description,category,minPrice,maxPrice} = singleJob;
+
+   
+
+      
+
   return (
     <div className="card w-96 bg-[#005843] text-white shadow-xl">
       <figure>
@@ -21,7 +28,7 @@ const MyPostedJobCard = ({singleJob}) => {
 
         </div>
         <div className="flex justify-between pt-2">
-        <button className="bg-[#feec62] py-2 px-3 rounded-xl text-black font-semibold">DELETE</button>
+        <button onClick={()=>handleDelete(_id)} className="bg-[#feec62] py-2 px-3 rounded-xl text-black font-semibold">DELETE</button>
         <button className="bg-[#feec62] py-2 px-3 rounded-xl text-black font-semibold">UPDATE</button>
         </div>
       </div>

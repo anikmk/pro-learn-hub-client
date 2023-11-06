@@ -1,20 +1,46 @@
 
-import  { useState } from 'react';
+import  { useContext, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../../../../Providers/AuthProvider';
 const CardDetails = () => {
+  const {user} = useContext(AuthContext)
+  const detailsData = useLoaderData()
+  const {description,deadline,minPrice,category} = detailsData
+  console.log(detailsData)
     const [price, setPrice] = useState('');
-    const [deadline, setDeadline] = useState('');
+    const [deadLine, setDeadline] = useState('');
     const [bidingEmail, setBidingEmail] = useState('');
-    const [buyerEmail, setBuyerEmail] = useState('');
+    const [buyerEmail, setBuyerEmail] = useState(user ? user.email : '');
 
     const handleFormSubmit = (e) => {     
         e.preventDefault();
         const bidingData = {
+            category,
             price,
-            deadline,
+            deadline: deadLine,
             bidingEmail,
             buyerEmail
         }
         console.log(bidingData)
+        fetch('http://localhost:5000/bidform',{
+          method:"POST",
+          headers:{
+            "content-type": "application/json"
+          },
+          body:JSON.stringify(bidingData)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          if(data.insertedId){
+            Swal.fire({
+              title: "Stored Succesfully!",
+              text: "We are store your Information!",
+              icon: "success"
+            });
+          }
+          console.log(data)
+        })
       };
   return (
     <div>
@@ -25,13 +51,16 @@ const CardDetails = () => {
             className="max-w-sm rounded-lg shadow-2xl"
           />
           <div>
-            <h1 className="text-5xl font-bold">Box Office News!</h1>
+            <h1 className="text-5xl font-bold">{category}</h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              {description}
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <p className="py-6">
+             {deadline}
+            </p>
+            <p className="py-6">
+              {minPrice}
+            </p>
           </div>
         </div>
       </div>
@@ -59,7 +88,7 @@ const CardDetails = () => {
             placeholder='Deadline'
             id="deadline"
             className="form-input border-[2px] rounded border-[#00584367] p-2 w-full"
-            value={deadline}
+            value={deadLine}
             onChange={(e) => setDeadline(e.target.value)}
           />
         </div>
@@ -80,7 +109,8 @@ const CardDetails = () => {
           <label htmlFor="buyerEmail" className="block text-gray-700 font-bold">Buyer Email</label>
           <input
             type="email"
-            placeholder='Buyer Email'
+            defaultValue={buyerEmail}
+            readOnly
             id="buyerEmail"
             className="form-input border-[2px] rounded border-[#00584367] p-2 w-full"
             value={buyerEmail}

@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 const MyPostedJob = () => {
     const {user} = useContext(AuthContext)
     const [myPostedJob,setMyPostedJob] = useState([])
+    console.log(myPostedJob)
     const url = `http://localhost:5000/addjobs?email=${user?.email}`
 
     useEffect(()=>{
@@ -43,6 +44,28 @@ const MyPostedJob = () => {
         }
       });
     };
+
+    const handleUpdate = (id) => {
+      fetch(`http://localhost:5000/addjobs/${id}`,{
+        method:"PATCH",
+        headers:{
+          "content-type":"application/json"
+        },
+        body:JSON.stringify({status:'confirm'})
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+        if(data.modifiedCount>0){
+          // update
+          const remainig = myPostedJob.filter(myJob=>myJob._id !== id)
+          const update = myPostedJob.find(myJob=>myJob._id === id)
+          update.status='confirm'
+          const newPostedJob = [update, ...remainig];
+          setMyPostedJob(newPostedJob)
+        }
+      })
+    }
     return (
         <div>
             <div className="bg-[#cccccca2] py-24">
@@ -56,6 +79,7 @@ const MyPostedJob = () => {
                   key={singleJob._id}
                   singleJob={singleJob}
                   handleDelete={handleDelete}
+                  handleUpdate={handleUpdate}
                   >
 
                   </MyPostedJobCard>)

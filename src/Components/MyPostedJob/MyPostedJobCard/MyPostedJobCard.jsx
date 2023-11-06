@@ -1,8 +1,8 @@
 
 
-const MyPostedJobCard = ({singleJob,handleDelete}) => {
+const MyPostedJobCard = ({singleJob,handleDelete,handleUpdate}) => {
     console.log(singleJob)
-    const {_id,email,jobTitle,deadline,description,category,minPrice,maxPrice} = singleJob;
+    const {_id,email,jobTitle,deadline,description,category,minPrice,maxPrice,status} = singleJob;
 
    
 
@@ -29,7 +29,10 @@ const MyPostedJobCard = ({singleJob,handleDelete}) => {
         </div>
         <div className="flex justify-between pt-2">
         <button onClick={()=>handleDelete(_id)} className="bg-[#feec62] py-2 px-3 rounded-xl text-black font-semibold">DELETE</button>
-        <button className="bg-[#feec62] py-2 px-3 rounded-xl text-black font-semibold">UPDATE</button>
+        {
+          status === 'confirm' ? <button className="bg-[#fff] py-2 px-3 rounded-xl text-green-800 font-semibold">Updated</button> :
+          <button onClick={()=>handleUpdate(_id)} className="bg-[#feec62] py-2 px-3 rounded-xl text-black font-semibold">UPDATE</button>
+        }
         </div>
       </div>
     </div>

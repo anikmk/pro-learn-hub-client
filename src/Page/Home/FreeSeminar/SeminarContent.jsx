@@ -34,13 +34,13 @@ const SeminarContent = () => {
                             <FaYoutube className="lg:text-2xl text-red-700"></FaYoutube>
                         </div>
                         <div>
-                            <h3 className="text-sm md:text-lg">LEADERSHIP IN WEB DEVELOPMENT</h3>
-                            <p className="text-xs md:text-sm">ProLearnHub | 9.00pm</p>
+                            <h3 className="text-sm md:text-lg">LEADERSHIP IN GRAPHICS DESIGN</h3>
+                            <p className="text-xs md:text-sm">ProLearnHub | 11.00pm</p>
                         </div>
                     </div>
                 </div>
                 <div className="hidden sm:block">
-                    <p className="text-xs md:text-sm">9 October | Offline + Online</p>
+                    <p className="text-xs md:text-sm">14 December | Offline + Online</p>
                 </div>
                 <div>
                     <button className="bg-[#feec62] py-2 px-3 rounded-xl">JOIN NOW</button>
@@ -53,13 +53,13 @@ const SeminarContent = () => {
                             <FaYoutube className="lg:text-2xl text-red-700"></FaYoutube>
                         </div>
                         <div>
-                            <h3 className="text-sm md:text-lg">LEADERSHIP IN WEB DEVELOPMENT</h3>
-                            <p className="text-xs md:text-sm">ProLearnHub | 9.00pm</p>
+                            <h3 className="text-sm md:text-lg">LEADERSHIP IN DIGITAL MARKETING</h3>
+                            <p className="text-xs md:text-sm">ProLearnHub | 4.00am</p>
                         </div>
                     </div>
                 </div>
                 <div className="hidden sm:block">
-                    <p className="text-xs md:text-sm">9 October | Offline + Online</p>
+                    <p className="text-xs md:text-sm">05 January | Offline + Online</p>
                 </div>
                 <div>
                     <button className="bg-[#feec62] py-2 px-3 rounded-xl">JOIN NOW</button>

@@ -4,16 +4,12 @@ const MyPostedJobCard = ({singleJob,handleDelete,handleUpdate}) => {
     console.log(singleJob)
     const {_id,email,jobTitle,deadline,description,category,minPrice,maxPrice,status} = singleJob;
 
-   
-
-      
-
   return (
     <div className="card bg-[#005843] text-white shadow-xl">
       <figure>
         <img
           src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="Shoes"
+          alt="Added Job Photo"
         />
       </figure>
       <div className="card-body">
@@ -28,10 +24,10 @@ const MyPostedJobCard = ({singleJob,handleDelete,handleUpdate}) => {
 
         </div>
         <div className="flex justify-between pt-2">
-        <button onClick={()=>handleDelete(_id)} className="bg-[#feec62] py-2 px-3 rounded-xl text-black font-semibold">DELETE</button>
+        <button onClick={()=>handleDelete(_id)} className="bg-[#feec62] py-2 px-3 rounded text-black font-semibold">DELETE</button>
         {
-          status === 'confirm' ? <button className="bg-[#fff] py-2 px-3 rounded-xl text-green-800 font-semibold">Updated</button> :
-          <button onClick={()=>handleUpdate(_id)} className="bg-[#feec62] py-2 px-3 rounded-xl text-black font-semibold">UPDATE</button>
+          status === 'confirm' ? <button className="bg-[#fff] py-2 px-3 rounded text-green-800 font-semibold">Updated</button> :
+          <button onClick={()=>handleUpdate(_id)} className="bg-[#feec62] py-2 px-3 rounded text-black font-semibold">UPDATE</button>
         }
         </div>
       </div>

@@ -16,7 +16,7 @@ const MyPostedJob = () => {
     const [myPostedJob,setMyPostedJob] = useState([])
     console.log(myPostedJob)
     const url = `https://pro-learn-hub-server-site.vercel.app/addjobs?email=${user?.email}`
-
+    
     useEffect(()=>{
         fetch(url)
         .then(res=>res.json())

@@ -1,13 +1,16 @@
 import banner from '../../assets/banner/addjob.png'
-import  { useEffect, useState } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import Aos from 'aos';
 import 'aos/dist/aos.css'
+import { AuthContext } from '../../Page/Providers/AuthProvider';
 const AddJobsForm = () => {
+  const {user} = useContext(AuthContext)
   useEffect(()=>{
     Aos.init({duration:600})
   },[])
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(user ? user.email : '');
+  // const [email, setEmail] = useState('');
   const [jobTitle, setJobTitle] = useState('');
   const [deadline, setDeadline] = useState('');
   const [description, setDescription] = useState('');
@@ -78,9 +81,10 @@ const AddJobsForm = () => {
           <input
             type="email"
             id="email"
+            defaultValue={email}
             className="form-input border-[2px] rounded border-[#00584367] p-2 w-full"
             value={email}
-            placeholder='Job Title'
+            readOnly
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>

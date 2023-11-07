@@ -51,7 +51,7 @@ const SignUp = () => {
     <div>
   <div className="bg-gray-100 py-14 px-4 lg:px-0">
     <div className="hero-content">
-      <div className="card py-12 text-center shadow-2xl bg-white w-full md:w-3/4 lg:w-2/3  mx-auto rounded-xl mt-4"> {/* Responsive width */}
+      <div className="card py-12 text-center shadow-2xl bg-white w-full md:w-2/3 lg:w-2/4  mx-auto rounded-xl mt-4"> {/* Responsive width */}
         <form onSubmit={handleSignUpUser} className="card-body">
           <h1 className="md:text-4xl text-3xl font-bold mb-2">Create an account</h1>
           <p className="mb-6 text-[#343434] text-[14px] lg:text-base font-semibold">Connect with your friends today!</p>
@@ -85,7 +85,7 @@ const SignUp = () => {
             <div className="form-control">
               <input
                 name="password"
-                type="text"
+                type="password"
                 placeholder="Enter Your Password"
                 className="input border border-gray-400 p-[10px] rounded-xl w-full mb-6"
                 required

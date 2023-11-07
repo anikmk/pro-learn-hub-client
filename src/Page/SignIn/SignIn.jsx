@@ -1,13 +1,16 @@
 import { useContext } from 'react';
 import {  FaFacebook, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 
 
 const SignIn = () => {
-  const {loginUser,loginWithGoogle} = useContext(AuthContext)
+  const {loginUser,loginWithGoogle} = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location)
   const handleSignIn = (event) => {
         event.preventDefault()
         const form = event.target;
@@ -18,9 +21,10 @@ const SignIn = () => {
         loginUser(email,password)
         .then(result=>{
           console.log(result.user)
+          navigate(location?.state? location?.state: '/')
           Swal.fire(
             'Good job!',
-            'You clicked the button!',
+            'You Successfully Logged In',
             'success'
           )
           return;
@@ -44,6 +48,7 @@ const SignIn = () => {
   const handleLogInWithGoogle = () => {
     loginWithGoogle()
     .then(result=>{
+      navigate(location?.state? location?. state : '/')
       console.log(result.user)
     })
     .catch(error=>{
@@ -71,7 +76,7 @@ const SignIn = () => {
             <div className="form-control">
               <input
                 name="password"
-                type="text"
+                type="password"
                 placeholder="Enter Your Password"
                 className="input border border-gray-400 p-[10px] rounded-xl w-full mb-6"
                 required

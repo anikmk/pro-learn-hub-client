@@ -31,11 +31,11 @@ const router = createBrowserRouter([
             },
             {
                 path:'addjob',
-                element:<AddJobsForm></AddJobsForm>
+                element:<PrivetRoute><AddJobsForm></AddJobsForm></PrivetRoute>,
             },
             {
                 path:'/carddetails/:id',
-                element:<CardDetails></CardDetails>,
+                element:<PrivetRoute><CardDetails></CardDetails></PrivetRoute>,
                 loader:({params})=>fetch(`https://pro-learn-hub-server-site.vercel.app/course/${params.id}`) 
             },
             {

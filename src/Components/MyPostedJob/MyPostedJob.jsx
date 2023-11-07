@@ -95,10 +95,10 @@ const MyPostedJob = () => {
           {/* banner end */}
             <div className="bg-[#cccccca2] py-24">
               <div className="mb-12 text-center px-12 lg:px-96">
-              <h2 className="text-3xl font-bold mb-2">Hey, {user.email} Your Posted Jobs Here</h2>
+              <h2 className=" text-xl md:text-3xl font-bold mb-2">Hey, {user.email} Your Posted Jobs Here</h2>
               <p className="">Welcome to proLearnHub, your dedicated platform for nurturing lifelong learning and personal growth. We believe that learning is the key to unlocking opportunities and achieving your full potential. At proLearnHub, we provide a diverse array of courses and resources to empower your journey towards skill excellence. </p>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 w-[90%] mx-auto justify-center">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 w-[90%] gap-5 mx-auto justify-center">
                 {
                   myPostedJob.map(singleJob=><MyPostedJobCard
                   key={singleJob._id}

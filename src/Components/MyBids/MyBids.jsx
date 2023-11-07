@@ -42,20 +42,15 @@ const MyBids = () => {
           </div>
     {/* banner end */}
     <div className="overflow-x-auto py-10 bg-slate-200">
-  <table className="table">
+  <table className="table w-full md:w-3/4 lg:w-[95%] mx-auto">
     {/* head */}
     <thead>
       <tr>
-        <th>
-          <label>
-            <input type="checkbox" className="checkbox" />
-          </label>
-        </th>
-        <th>Job Title</th>
-        <th>Email</th>
-        <th>Dead Line</th>
-        <th>Status</th>
-        <th></th>
+        <th className='p-2 md:p-4'>Job Title</th>
+        <th className='p-2 md:p-4'>Email</th>
+        <th className='p-2 md:p-4'>Dead Line</th>
+        <th className='p-2 md:p-4'>Status</th>
+        <th className='p-2 md:p-4'></th>
       </tr>
     </thead>
     <tbody>

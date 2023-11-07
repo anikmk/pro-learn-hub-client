@@ -16,21 +16,21 @@ const NavBar = () => {
   const navItems = (
     <>
       <li>
-        <Link to='/' className="hover:text-[#c5c5c5]">HOME</Link>
+        <Link to='/' className="hover:text-[#c5c5c5] font-semibold ">HOME</Link>
       </li>
       <li>
-        <Link to='/addjob' className="hover:text-[#c5c5c5]">ADD JOB</Link>
+        <Link to='/addjob' className="hover:text-[#c5c5c5] font-semibold">ADD JOB</Link>
       </li>
       <li>
         {
-          user && <Link to='/postedjob' className="hover:text-[#c5c5c5]">MY POSTEDJOBS</Link>
+          user && <Link to='/postedjob' className="hover:text-[#c5c5c5] font-semibold">MY POSTEDJOBS</Link>
         }
       </li>
       <li>
-        <Link to='/mybids' className="hover:text-[#c5c5c5]">MY BIDS</Link>
+        <Link to='/mybids' className="hover:text-[#c5c5c5] font-semibold">MY BIDS</Link>
       </li>
       <li>
-        <Link className="hover:text-[#c5c5c5]">BID REQUESTS</Link>
+        <Link className="hover:text-[#c5c5c5] font-semibold">BID REQUESTS</Link>
       </li>
     </>
   );
@@ -69,7 +69,7 @@ const NavBar = () => {
       <div className="navbar-end">
         {user && ( 
           <>
-          {user.displayName}
+          <p className="mr-3 hidden md:block">{user.displayName}</p>
           <div className="avatar online mr-4">
             <div className="w-10 rounded-full">
               <img src={user.photoURL} />

@@ -3,10 +3,15 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Page/Providers/AuthProvider";
 import MyPostedJobCard from "./MyPostedJobCard/MyPostedJobCard";
 import Swal from "sweetalert2";
-
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 
 const MyPostedJob = () => {
+    useEffect(()=>{
+      Aos.init({duration:600})
+    },[])
+
     const {user} = useContext(AuthContext)
     const [myPostedJob,setMyPostedJob] = useState([])
     console.log(myPostedJob)
@@ -73,15 +78,15 @@ const MyPostedJob = () => {
       <div className="w-11/12 mx-auto">
         <div className="lg:flex lg:justify-between lg:items-center">
           <div className="lg:w-[55%] xl:w-[45%] w-[90%]">
-            <div className="text-left md:pb-8 py-5">
+            <div data-aos="fade-right" className="text-left md:pb-8 py-5">
                <h1 className="text-black uppercase font-semibold md:text-6xl text-3xl lg:text-5xl">Hey, <span className="text-[#005843]">see your</span> posted jobs and <span className="text-[#005843]">Course explore</span></h1>
             </div>
-            <div className="flex pb-6 lg:mb-0">
-              <button className="mr-5 bg-[#005843] text-white lg:py-3 py-2 lg:px-9 md:px-7 px-6 rounded-full text-md font-medium hover:bg-[#005848] hover:shadow-lg hover:shadow-[#0E624E]">Course</button>
+            <div data-aos="fade-down-left" className="flex pb-6 lg:mb-0">
+              <button  className="mr-5 bg-[#005843] text-white lg:py-3 py-2 lg:px-9 md:px-7 px-6 rounded-full text-md font-medium hover:bg-[#005848] hover:shadow-lg hover:shadow-[#0E624E]">Course</button>
               <button className="border border-[#005843] text-[#005843] lg:py-3 py-2 lg:px-9 md:px-7 px-6 rounded-full hover:bg-[#005843] hover:text-white font-semibold hover:shadow-lg hover:shadow-[#0E624E]">Services</button>
             </div>
           </div>
-          <div className="lg:w-[45%] w-11/12 h-full mx-auto lg:mx-0">
+          <div data-aos="fade-left" className="lg:w-[45%] w-11/12 h-full mx-auto lg:mx-0">
             <img className="w-full" src={banner} alt="" />
           </div>
         </div>

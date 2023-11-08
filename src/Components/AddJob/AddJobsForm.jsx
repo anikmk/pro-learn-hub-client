@@ -33,7 +33,7 @@ const AddJobsForm = () => {
         maxPrice
     }
     console.log(AddedJobData)
-    fetch('http://localhost:5000/addjobs',{
+    fetch('https://pro-learn-hub-server-site.vercel.app/addjobs',{
       method:"POST",
       headers:{
         "content-type":"application/json"

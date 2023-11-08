@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Page/Providers/AuthProvider";
+import BidRequestRow from "./BidRequestRow";
 
 
 const BidRequest = () => {
@@ -7,7 +8,7 @@ const BidRequest = () => {
           console.log(user.email)
           const [requestData,setRequestData] = useState([]);
           useEffect(()=>{
-            fetch(`http://localhost:5000/requpdate?buyerEmail=${user.email}`)
+            fetch(`https://pro-learn-hub-server-site.vercel.app/requpdate?buyeremail=${user.email}`)
             .then(res=>res.json())
             .then(data=>{
               setRequestData(data)
@@ -16,7 +17,7 @@ const BidRequest = () => {
 
     return (
         <div>
-            create bid request page{requestData.length}
+      
     <div className="overflow-x-auto py-10 bg-slate-200">
   <table className="table w-full md:w-3/4 lg:w-[95%] mx-auto">
     {/* head */}
@@ -27,12 +28,20 @@ const BidRequest = () => {
         <th className='p-2 md:p-4'>Dead Line</th>
         <th className='p-2 md:p-4'>Price</th>
         <th className='p-2 md:p-4'>Status</th>
-        <th className='p-2 md:p-4'></th>
+        <th className='p-2 md:p-4'>Action</th>
+        
       </tr>
     </thead>
     <tbody>
       {/* row 1 */}
+        {
+          requestData.map(data=><BidRequestRow
+          key={data.email}
+          data={data}
+          >
 
+          </BidRequestRow>)
+        }
     
     </tbody>  
   </table>

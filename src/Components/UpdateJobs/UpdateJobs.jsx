@@ -35,7 +35,7 @@ const UpdateJobs = () => {
     };
     console.log(updateData);
     // update confirm data
-    fetch(`http://localhost:5000/addjobs/${_id}`,{
+    fetch(`https://pro-learn-hub-server-site.vercel.app/addjobs/${_id}`,{
         method:"PUT",
         headers:{
             "content-type":"application/json"

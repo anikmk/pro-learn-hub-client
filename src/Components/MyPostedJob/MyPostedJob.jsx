@@ -15,7 +15,7 @@ const MyPostedJob = () => {
     const {user} = useContext(AuthContext)
     const [myPostedJob,setMyPostedJob] = useState([])
     console.log(myPostedJob)
-    const url = `http://localhost:5000/addjobs?email=${user?.email}`
+    const url = `https://pro-learn-hub-server-site.vercel.app/addjobs?email=${user?.email}`
 
     useEffect(()=>{
         fetch(url)
@@ -37,7 +37,7 @@ const MyPostedJob = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           // User confirmed the deletion
-          fetch(`http://localhost:5000/addjobs/${id}`, {
+          fetch(`https://pro-learn-hub-server-site.vercel.app/addjobs/${id}`, {
             method: 'DELETE',
           })
             .then((res) => res.json())

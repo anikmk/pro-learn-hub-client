@@ -4,7 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import WebCard from './webCard/WebCard';
 
 const CategorysTab = () => {
-  const [selectedCategory, setSelectedCategory] = useState('web development');
+  const [selectedCategory, setSelectedCategory] = useState('web developer');
 
   return (
     <Tabs>
@@ -12,7 +12,7 @@ const CategorysTab = () => {
         CHOICE YOUR CATEGORY
       </div>
       <TabList>
-        <Tab onClick={() => setSelectedCategory('web development')}>WEB DEVELOPMENT</Tab>
+        <Tab onClick={() => setSelectedCategory('web developer')}>WEB DEVELOPMENT</Tab>
         <Tab onClick={() => setSelectedCategory('digital marketing')}>DIGITAL MARKETING</Tab>
         <Tab onClick={() => setSelectedCategory('graphics design')}>GRAPHICS DESIGN</Tab>
       </TabList>

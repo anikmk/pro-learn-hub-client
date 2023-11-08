@@ -1,21 +1,19 @@
 import { Link } from "react-router-dom";
 import Aos from 'aos';
 import 'aos/dist/aos.css'
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../../../Providers/AuthProvider";
 
 const Card = ({category}) => {
+  const {user} = useContext(AuthContext)
   useEffect(()=>{
     Aos.init({duration:600})
   },[])
-    const {_id,jobTitle,deadline,description,minPrice,image} = category;
+    const {_id,jobTitle,deadline,description,minPrice,email} = category;
+    console.log(email)
     return (
         <div data-aos="slide-up" className="card card-compact bg-[#005843] shadow-xl">
       <figure>
-        <img
-          className="h-[200px]"
-          src={image}
-          alt={jobTitle}
-        />
       </figure>
       <div className="card-body shadow-xl text-white">
         <h2 className="card-title text-[#feec62]">{jobTitle}</h2>
@@ -26,7 +24,9 @@ const Card = ({category}) => {
         </div>
         <div className="card-actions justify-end">
           <Link to={`/carddetails/${_id}`}>
-          <button className="bg-[#feec62] text-[#005843] font-semibold px-3 py-2 rounded hover:bg-white">BID NOW</button>
+
+          <button className= {` ${user?.email == email && "disabled bg-warning"} text-[#005843] bg-[#fff] font-semibold px-3 py-2 rounded hover:bg-white`}>BID NOW</button>
+
           </Link>
         </div>
       </div>

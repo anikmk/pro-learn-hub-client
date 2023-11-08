@@ -2,18 +2,18 @@
 
 const MyBidsRow = ({mybid}) => {
        console.log(mybid)
-        const {buyerEmail,deadline,status} = mybid
+        const {selleremail,deadline,status,category} = mybid
     return (   
 <tr className="border-b border-gray-200 hover:bg-gray-100">
   <td className="py-2 sm:py-4">
     <div className="space-x-3">
       <div>
-        <div className="font-bold">Web Developer</div>
+        <div className="font-bold">{category}</div>
       </div>
     </div>
   </td>
   <td className="py-2 sm:py-4">
-    {buyerEmail}
+    {selleremail}
   </td>
   <td className="py-2 sm:py-4">
     {deadline}

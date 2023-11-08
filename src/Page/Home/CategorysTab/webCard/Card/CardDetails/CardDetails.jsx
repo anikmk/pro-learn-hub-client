@@ -7,25 +7,29 @@ import { AuthContext } from '../../../../../Providers/AuthProvider';
 const CardDetails = () => {
   const {user} = useContext(AuthContext)
   const detailsData = useLoaderData()
-  const {description,deadline,minPrice,category,image,status} = detailsData
+  const {description,deadline,minPrice,category,image,status,email} = detailsData
   console.log(detailsData)
     const [price, setPrice] = useState('');
     const [deadLine, setDeadline] = useState('');
-    const [bidingEmail, setBidingEmail] = useState('');
-    const [buyerEmail, setBuyerEmail] = useState(user ? user.email : '');
+
+    // const [bidingEmail, setBidingEmail] = useState('');
+    // const [buyerEmail, setBuyerEmail] = useState(user ? user.email : '');
 
     const handleFormSubmit = (e) => {     
         e.preventDefault();
         const bidingData = {
-            status,
+            status:"pandding",
             category,
             price,
             deadline: deadLine,
-            bidingEmail,
-            buyerEmail
+            // bidingEmail,
+            // buyerEmail
+            selleremail:user.email,
+            buyeremail:email,
+
         }
         console.log(bidingData)
-        fetch('http://localhost:5000/bidform',{
+        fetch('https://pro-learn-hub-server-site.vercel.app/bidform',{
           method:"POST",
           headers:{
             "content-type": "application/json"
@@ -45,12 +49,13 @@ const CardDetails = () => {
         })
       };
   return (
+    // card details
     <div>
-      <div className="hero min-h-screen">
+      <div className="hero bg-slate-400">
         <div className="hero-content flex-col lg:flex-row">
           <img
             src={image}
-            className="w-[50%] md:mr-6 rounded-lg shadow-2xl"
+            className=" md:mr-6 rounded-lg shadow-2xl"
           />
           <div>
             <h1 className="text-4xl font-bold">{category}</h1>
@@ -86,7 +91,7 @@ const CardDetails = () => {
         <div className="mb-4">
           <label htmlFor="deadline" className="block text-gray-700 font-bold">Deadline</label>
           <input
-            type="text"
+            type="date"
             placeholder='Deadline'
             id="deadline"
             className="form-input border-[2px] rounded border-[#00584367] p-2 w-full"
@@ -100,23 +105,24 @@ const CardDetails = () => {
           <input
             type="email"
             placeholder='Biding Email'
+            defaultValue={user.email}
+            readOnly
             id="bidingEmail"
             className="form-input border-[2px] rounded border-[#00584367] p-2 w-full"
-            value={bidingEmail}
-            onChange={(e) => setBidingEmail(e.target.value)}
+            // value={bidingEmail}
+            // onChange={(e) => setBidingEmail(e.target.value)}
           />
         </div>
 
         <div className="mb-4">
           <label htmlFor="buyerEmail" className="block text-gray-700 font-bold">Buyer Email</label>
           <input
-            type="email"
-            defaultValue={buyerEmail}
+            type="email"           
             readOnly
+            defaultValue={email}
             id="buyerEmail"
-            className="form-input border-[2px] rounded border-[#00584367] p-2 w-full"
-            value={buyerEmail}
-            onChange={(e) => setBuyerEmail(e.target.value)}
+            className="form-input border-[2px] rounded border-[#00584367] p-2 w-full"         
+            // onChange={(e) => setBuyerEmail(e.target.value)}
           />
         </div>
 

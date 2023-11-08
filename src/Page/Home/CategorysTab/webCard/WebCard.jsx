@@ -7,7 +7,8 @@ const WebCard = ({category}) => {
   const [categoryData,setCategoryData] = useState([]);
   console.log(categoryData)
   useEffect(()=>{
-    fetch(`http://localhost:5000/courses/${category}`)
+    fetch(`https://pro-learn-hub-server-site.vercel.app/useraddjobs`)
+    // fetch(`https://pro-learn-hub-server-site.vercel.app/courses/${category}`)
     .then(res=>res.json())
     .then(data=>{
       setCategoryData(data)
@@ -18,7 +19,7 @@ const WebCard = ({category}) => {
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 py-14">
         {
-          categoryData.map(category=><Card
+          categoryData.filter(item=>item.category==category).map(category=><Card
           key={category._id}
           category={category}
           >

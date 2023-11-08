@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             {
                 path:'/carddetails/:id',
                 element:<PrivetRoute><CardDetails></CardDetails></PrivetRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/course/${params.id}`) 
+                loader:({params})=>fetch(`https://pro-learn-hub-server-site.vercel.app/useraddjobs/${params.id}`) 
             },
             {
                 path:'postedjob',
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             {
                 path:"/updateJobs/:id",
                 element:<UpdateJobs></UpdateJobs>,
-                loader:({params})=>fetch(`http://localhost:5000/updatejobs/${params.id}`)
+                loader:({params})=>fetch(`https://pro-learn-hub-server-site.vercel.app/updatejobs/${params.id}`)
             },
             {
                 path:'bidrequest',

@@ -10,8 +10,10 @@ const MyBids = () => {
     Aos.init({duration:1000})
   },[])
     const {user} = useContext(AuthContext)
+    
     const [myBids,setMyBids] = useState([])
-    const url =`http://localhost:5000/bidform?buyerEmail=${user.email}`
+    const url =`https://pro-learn-hub-server-site.vercel.app/mybids?selleremail=${user.email}`
+
     useEffect(()=>{
         fetch(url)
         .then(res=>res.json())

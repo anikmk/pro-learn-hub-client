@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 
 
-const MyPostedJobCard = ({singleJob,handleDelete,handleUpdate}) => {
+const MyPostedJobCard = ({singleJob,handleDelete,}) => {
     console.log(singleJob)
     const {_id,email,jobTitle,deadline,description,category,minPrice,maxPrice,status} = singleJob;
 
@@ -25,10 +26,10 @@ const MyPostedJobCard = ({singleJob,handleDelete,handleUpdate}) => {
         </div>
         <div className="flex justify-between pt-2">
         <button onClick={()=>handleDelete(_id)} className="bg-[#feec62] py-2 px-3 rounded text-black font-semibold">DELETE</button>
-        {
-          status === 'confirm' ? <button className="bg-[#fff] py-2 px-3 rounded text-green-800 font-semibold">Updated</button> :
-          <button onClick={()=>handleUpdate(_id)} className="bg-[#feec62] py-2 px-3 rounded text-black font-semibold">UPDATE</button>
-        }
+        <Link to={`/updatejobs/${_id}`}>
+          <button className="bg-[#feec62] py-2 px-3 rounded text-black font-semibold">UPDATE</button>
+          </Link>
+
         </div>
       </div>
     </div>

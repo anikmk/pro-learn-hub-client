@@ -11,7 +11,7 @@ const MyBids = () => {
   },[])
     const {user} = useContext(AuthContext)
     const [myBids,setMyBids] = useState([])
-    const url =`https://pro-learn-hub-server-site.vercel.app/bidform?buyerEmail=${user.email}`
+    const url =`http://localhost:5000/bidform?buyerEmail=${user.email}`
     useEffect(()=>{
         fetch(url)
         .then(res=>res.json())

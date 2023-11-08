@@ -4,7 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import WebCard from './webCard/WebCard';
 
 const CategorysTab = () => {
-  const [selectedCategory, setSelectedCategory] = useState('WEB DEVELOPMENT');
+  const [selectedCategory, setSelectedCategory] = useState('web development');
 
   return (
     <Tabs>

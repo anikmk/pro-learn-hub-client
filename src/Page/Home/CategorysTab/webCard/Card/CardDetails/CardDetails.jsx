@@ -3,6 +3,7 @@ import  { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../../../Providers/AuthProvider';
+
 const CardDetails = () => {
   const {user} = useContext(AuthContext)
   const detailsData = useLoaderData()
@@ -24,7 +25,7 @@ const CardDetails = () => {
             buyerEmail
         }
         console.log(bidingData)
-        fetch('https://pro-learn-hub-server-site.vercel.app/bidform',{
+        fetch('http://localhost:5000/bidform',{
           method:"POST",
           headers:{
             "content-type": "application/json"

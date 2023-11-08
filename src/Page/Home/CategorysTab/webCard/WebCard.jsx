@@ -7,7 +7,7 @@ const WebCard = ({category}) => {
   const [categoryData,setCategoryData] = useState([]);
   console.log(categoryData)
   useEffect(()=>{
-    fetch(`https://pro-learn-hub-server-site.vercel.app/courses/${category}`)
+    fetch(`http://localhost:5000/courses/${category}`)
     .then(res=>res.json())
     .then(data=>{
       setCategoryData(data)

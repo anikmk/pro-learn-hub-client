@@ -4,8 +4,11 @@ import Swal from 'sweetalert2';
 import Aos from 'aos';
 import 'aos/dist/aos.css'
 import { AuthContext } from '../../Page/Providers/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
 const AddJobsForm = () => {
   const {user} = useContext(AuthContext)
+  const location = useLocation();
+  const navigate = useNavigate();
   useEffect(()=>{
     Aos.init({duration:600})
   },[])
@@ -30,7 +33,7 @@ const AddJobsForm = () => {
         maxPrice
     }
     console.log(AddedJobData)
-    fetch('https://pro-learn-hub-server-site.vercel.app/addjobs',{
+    fetch('http://localhost:5000/addjobs',{
       method:"POST",
       headers:{
         "content-type":"application/json"
@@ -39,6 +42,8 @@ const AddJobsForm = () => {
     })
     .then(res=>res.json())
     .then(data=>{
+      console.log(data)
+      navigate(location?.state? location?.state: '/postedjob')
       if(data.insertedId){
         Swal.fire(
           'Good job!',

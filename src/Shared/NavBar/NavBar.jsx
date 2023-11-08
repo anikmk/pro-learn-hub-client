@@ -30,7 +30,7 @@ const NavBar = () => {
         <Link to='/mybids' className="hover:text-[#c5c5c5] font-semibold">MY BIDS</Link>
       </li>
       <li>
-        <Link className="hover:text-[#c5c5c5] font-semibold">BID REQUESTS</Link>
+        <Link to='/bidrequest' className="hover:text-[#c5c5c5] font-semibold">BID REQUESTS</Link>
       </li>
     </>
   );

@@ -15,8 +15,8 @@ const MyPostedJob = () => {
     const {user} = useContext(AuthContext)
     const [myPostedJob,setMyPostedJob] = useState([])
     console.log(myPostedJob)
-    const url = `https://pro-learn-hub-server-site.vercel.app/addjobs?email=${user?.email}`
-    
+    const url = `http://localhost:5000/addjobs?email=${user?.email}`
+
     useEffect(()=>{
         fetch(url)
         .then(res=>res.json())
@@ -37,7 +37,7 @@ const MyPostedJob = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           // User confirmed the deletion
-          fetch(`https://pro-learn-hub-server-site.vercel.app/addjobs/${id}`, {
+          fetch(`http://localhost:5000/addjobs/${id}`, {
             method: 'DELETE',
           })
             .then((res) => res.json())
@@ -51,27 +51,7 @@ const MyPostedJob = () => {
       });
     };
 
-    const handleUpdate = (id) => {
-      fetch(`https://pro-learn-hub-server-site.vercel.app/addjobs/${id}`,{
-        method:"PATCH",
-        headers:{
-          "content-type":"application/json"
-        },
-        body:JSON.stringify({status:'confirm'})
-      })
-      .then(res=>res.json())
-      .then(data=>{
-        console.log(data)
-        if(data.modifiedCount>0){
-          // update
-          const remainig = myPostedJob.filter(myJob=>myJob._id !== id)
-          const update = myPostedJob.find(myJob=>myJob._id === id)
-          update.status='confirm'
-          const newPostedJob = [update, ...remainig];
-          setMyPostedJob(newPostedJob)
-        }
-      })
-    }
+    
     return (
         <div>
           <div className="bg-[#fff] pt-12 pb-28">
@@ -104,9 +84,8 @@ const MyPostedJob = () => {
                   key={singleJob._id}
                   singleJob={singleJob}
                   handleDelete={handleDelete}
-                  handleUpdate={handleUpdate}
+                  // handleUpdate={handleUpdate}
                   >
-
                   </MyPostedJobCard>)
                 }
                 </div>

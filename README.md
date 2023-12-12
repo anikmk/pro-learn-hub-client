@@ -1,8 +1,11 @@
  ## Project Name: ProLearn|Hub
 
  - Live Link: https://pro-learn-hub.web.app/
- ## Main Features:
+
+ ## Project Selling line
+ - Revolutionizing learning: Empower users with course bidding, offering personalized pricing and transparency in enrollment.
  
+ # Features:
  - Unique Bidding System: Our platform introduces an innovative bidding system where users have the autonomy to bid on courses they desire. This adds an element of engagement and ownership over the learning process.
 
 - Tailored Learning Experience: By allowing users to bid on courses, we empower them to choose what they want to learn and at what price, ensuring a personalized learning journey.
